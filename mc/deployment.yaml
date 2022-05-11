@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mc
+  labels:
+    app: mc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mc
+  template:
+    metadata:
+      labels:
+        app: mc
+    spec:
+      containers:
+      - name: client
+        image: minio/mc
+        command:
+          - "sleep"
+          - "infinity"
+        volumeMounts:
+          - mountPath: /.mc
+            name: mc-vol
+      volumes:
+        - name: mc-vol
+          emptyDir: {}
