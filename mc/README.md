@@ -1,1 +1,1 @@
-A sample deployment manifest for MinIO client.
+A deployment manifest sample for MinIO client.
